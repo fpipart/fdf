@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/02/15 17:14:46 by fpipart          ###   ########.fr       */
+/*   Created: 2017/02/15 16:39:00 by fpipart           #+#    #+#             */
+/*   Updated: 2017/02/15 17:28:36 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FDF_H
-# define FDF_H
+#include "../includes/fdf.h"
 
-#include <fcntl.h>
-#include "mlx.h"
-#include "../libft/libft.h"
-
-typedef struct	s_store
+int		error(char *error)
 {
-	void		*mlx;
-	void		*win;
-	int			larg;
-	int			lg;
-	int			**tab;
-}				t_store;
-
-/*
-**		read_map.c
-*/
-int			read_map(char **argv, t_store *store);
-/*
-**		error.c
-*/
-int				error(char *error);
-/*
-**		print_map.c
-*/
-void			print_map(t_store *store);
-
-# endif
+	if (ft_strequ("line length", error))
+		ft_putendl("Found wrong line length. Exiting.");
+	if (ft_strequ("no data", error))
+		ft_putendl("No data found.");
+	if (ft_strequ("usage", error))
+		ft_putendl("Usage : ./fdf <filename> [ case_size z_size ]");
+	return (-1);
+}

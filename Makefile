@@ -6,11 +6,11 @@
 #    By: fpipart <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 10:59:14 by fpipart           #+#    #+#              #
-#    Updated: 2017/02/15 14:06:04 by fpipart          ###   ########.fr        #
+#    Updated: 2017/02/15 17:15:19 by fpipart          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES = fdf.c
+FILES = fdf.c read_map.c error.c print_map.c
 
 SRC_PATH = ./srcs/
 CFILES = $(FILES:%=./srcs/%)
