@@ -37,7 +37,7 @@ CFILES = conversion_diouxx.c conversion_type.c ft_printf.c	\
 		 ft_strwncpy.c ft_strwttlen.c ft_strwsub.c			\
 		 ft_wcharlen.c no_conversion.c ft_strwdel.c			\
 		 conversion_diouxx_bis.c ft_is_sort.c				\
-		 get_next_line.c
+		 get_next_line.c ft_max.c ft_max_float.c
 
 OBJ_PATH = ./obj/
 OBJ_FILE = $(CFILES:%.c=%.o)

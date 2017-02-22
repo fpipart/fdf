@@ -29,6 +29,8 @@ int	my_key_function(int keycode, void *param)
 int main(int argc, char **argv)
 {
 	t_store store;
+	t_point p1;
+	t_point p2;
 
 	if (argc == 2)
 	{
@@ -37,6 +39,11 @@ int main(int argc, char **argv)
 		print_map(&store);
 		store.mlx = mlx_init();
 		store.win = mlx_new_window(store.mlx, 400, 400, "mlx 42");
+		p1.x = 40;
+		p1.y = 10;
+		p2.x = 300;
+		p2.y = 300;
+		print_line(p1, p2, store);
 		mlx_pixel_put(store.mlx, store.win, 200, 200, 0x00FFFFFF);
 		mlx_key_hook(store.win, my_key_function, &store);
 		mlx_loop(store.mlx);

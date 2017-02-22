@@ -28,8 +28,8 @@ INC_PATH = ./includes/
 INC = fdf.h
 
 FLAGS = -Wextra -Werror -Wall 
-
-MLX = -L/usr/lib -l mlx -framework OpenGL -framework Appkit
+#MLX = -L/usr/lib -l mlx -framework OpenGL -framework Appkit
+MLX = -L. -l mlx -framework OpenGL -framework Appkit
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INC_PATH)$(INC)
 	@mkdir -p $(OBJ_PATH)

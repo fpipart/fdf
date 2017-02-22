@@ -26,6 +26,13 @@ typedef struct	s_store
 	int			**tab;
 }				t_store;
 
+typedef struct	s_point
+{
+	int			x;
+	int			y;
+	int			z;
+}				t_point;
+
 /*
 **		read_map.c
 */
@@ -38,5 +45,6 @@ int				error(char *error);
 **		print_map.c
 */
 void			print_map(t_store *store);
+void			print_line(t_point p1, t_point p2, t_store store);
 
 # endif

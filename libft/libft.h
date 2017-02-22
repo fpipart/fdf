@@ -158,6 +158,8 @@ unsigned int		ft_abs(int x);
 int					ft_wordcount(char const *s, char c);
 size_t				ft_wordlen(const char *s, char c);
 int					ft_is_sort(int *a, int size);
+int					ft_max(int a, int b);
+float				ft_max_float(float a, float b);
 
 int					get_next_line(const int fd, char **line);
 
