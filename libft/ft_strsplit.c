@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 08:56:04 by fpipart           #+#    #+#             */
-/*   Updated: 2017/01/24 19:41:03 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/20 12:19:57 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char		**ft_strsplit(char const *s, char c)
 	if (s)
 	{
 		word_max = ft_wordcount(s, c);
-		tab = (char**)malloc(sizeof(char*) * word_max + 1);
+		tab = (char**)malloc(sizeof(char*) * (word_max + 1));
 		if (tab)
 		{
 			tab = split(tab, c, s, word_max);

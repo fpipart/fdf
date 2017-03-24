@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 13:42:32 by fpipart           #+#    #+#             */
-/*   Updated: 2017/01/24 19:04:05 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/22 10:21:56 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,8 +158,7 @@ unsigned int		ft_abs(int x);
 int					ft_wordcount(char const *s, char c);
 size_t				ft_wordlen(const char *s, char c);
 int					ft_is_sort(int *a, int size);
-int					ft_max(int a, int b);
-float				ft_max_float(float a, float b);
+int					ft_max_float(float a, float b);
 
 int					get_next_line(const int fd, char **line);
 

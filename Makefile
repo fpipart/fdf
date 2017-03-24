@@ -6,7 +6,7 @@
 #    By: fpipart <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 10:59:14 by fpipart           #+#    #+#              #
-#    Updated: 2017/02/15 17:15:19 by fpipart          ###   ########.fr        #
+#    Updated: 2017/03/22 09:31:58 by fpipart          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ LIB = libft.a
 INC_PATH = ./includes/
 INC = fdf.h
 
-FLAGS = -Wextra -Werror -Wall 
-#MLX = -L/usr/lib -l mlx -framework OpenGL -framework Appkit
-MLX = -L. -l mlx -framework OpenGL -framework Appkit
+FLAGS = -g -Wextra -Werror -Wall 
+MLX = -L/usr/lib -l mlx -framework OpenGL -framework Appkit
+#MLX = -L. -l mlx -framework OpenGL -framework Appkit
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INC_PATH)$(INC)
 	@mkdir -p $(OBJ_PATH)

@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:12:51 by fpipart           #+#    #+#             */
-/*   Updated: 2017/02/15 17:33:54 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/24 16:49:12 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	my_key_function(int keycode, void *param)
 
 	store = param;
 	ft_printf("Nombre de la touche : %d\n", keycode);
-	if (keycode == 53)
+	if (keycode == ESC)
 	{
-		mlx_destroy_window(store->mlx, store->win);
+	//	mlx_destroy_window(store->mlx, store->win);
 		exit(0);
 	}
 	return (1);
@@ -29,22 +29,15 @@ int	my_key_function(int keycode, void *param)
 int main(int argc, char **argv)
 {
 	t_store store;
-	t_point p1;
-	t_point p2;
 
 	if (argc == 2)
 	{
 		if (read_map(argv, &store))
 			return (0);
-		print_map(&store);
 		store.mlx = mlx_init();
-		store.win = mlx_new_window(store.mlx, 400, 400, "mlx 42");
-		p1.x = 40;
-		p1.y = 10;
-		p2.x = 300;
-		p2.y = 300;
-		print_line(p1, p2, store);
-		mlx_pixel_put(store.mlx, store.win, 200, 200, 0x00FFFFFF);
+		store.win = mlx_new_window(store.mlx, W, H, "mlx 42");
+		print(&store);
+		//print_map(store);
 		mlx_key_hook(store.win, my_key_function, &store);
 		mlx_loop(store.mlx);
 	}

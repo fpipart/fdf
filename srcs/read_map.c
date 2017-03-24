@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:20:41 by fpipart           #+#    #+#             */
-/*   Updated: 2017/02/15 17:33:33 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/22 10:05:06 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,15 @@ static void	fill_line(int **tab_int, char *line)
 	tab = ft_strsplit(line, ' ');
 	i = 0;
 	max = ft_wordcount(line, ' ');
-	while (i < max)
+	if (tab)
 	{
-		(*tab_int)[i] = ft_atoi(tab[i]);
-		i++;
+		while (i < max)
+		{
+			(*tab_int)[i] = ft_atoi(tab[i]);
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
 	}
 }
 

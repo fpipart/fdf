@@ -6,7 +6,7 @@
 #    By: fpipart <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/10 14:21:45 by fpipart           #+#    #+#              #
-#    Updated: 2017/01/18 11:57:59 by fpipart          ###   ########.fr        #
+#    Updated: 2017/03/22 10:22:13 by fpipart          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,13 @@ CFILES = conversion_diouxx.c conversion_type.c ft_printf.c	\
 		 ft_strwncpy.c ft_strwttlen.c ft_strwsub.c			\
 		 ft_wcharlen.c no_conversion.c ft_strwdel.c			\
 		 conversion_diouxx_bis.c ft_is_sort.c				\
-		 get_next_line.c ft_max.c ft_max_float.c
+		 get_next_line.c ft_max_float.c
 
 OBJ_PATH = ./obj/
 OBJ_FILE = $(CFILES:%.c=%.o)
 OBJ = $(OBJ_FILE:%=$(OBJ_PATH)%)
 
-FLAGS = -Wextra -Werror -Wall
+FLAGS = -g -Wextra -Werror -Wall
 
 NAME = libft.a
 

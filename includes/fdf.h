@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/02/15 17:14:46 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/24 16:49:32 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,36 @@
 #include <fcntl.h>
 #include "mlx.h"
 #include "../libft/libft.h"
+#include <math.h>
 
-typedef struct	s_store
+#define H 1000
+#define W 1000
+
+#define Z 10
+
+#define ESC 53
+
+typedef struct		s_store
 {
-	void		*mlx;
-	void		*win;
-	int			larg;
-	int			lg;
-	int			**tab;
-}				t_store;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*data_img;
+	int				larg;
+	int				lg;
+	int				**tab;
+	int				bpp;
+	int				s_l;
+	int				endian;
+	float			theta;
+}					t_store;
+
+typedef struct		s_rgb
+{
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}					t_rgb;
 
 typedef struct	s_point
 {
@@ -36,7 +57,7 @@ typedef struct	s_point
 /*
 **		read_map.c
 */
-int			read_map(char **argv, t_store *store);
+int				read_map(char **argv, t_store *store);
 /*
 **		error.c
 */
@@ -44,7 +65,9 @@ int				error(char *error);
 /*
 **		print_map.c
 */
-void			print_map(t_store *store);
-void			print_line(t_point p1, t_point p2, t_store store);
+//void			print_map(t_store store);
+//void			print_line(t_point p1, t_point p2, t_store store);
+void			print(t_store *store);
+//void			put_pixel(t_store *store, int x, int y, t_rgb color);
 
 # endif
