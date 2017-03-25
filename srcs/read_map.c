@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:20:41 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/22 10:05:06 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/25 15:31:21 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	find_dim(char **argv, t_store *store)
 	return (0);
 }
 
-static void	fill_line(int **tab_int, char *line)
+static void	fill_line(int **tab_int, char *line, t_store *store)
 {
 	char	**tab;
 	int		i;
@@ -52,6 +52,10 @@ static void	fill_line(int **tab_int, char *line)
 		while (i < max)
 		{
 			(*tab_int)[i] = ft_atoi(tab[i]);
+			if (store->z_max < (*tab_int)[i])
+				store->z_max = (*tab_int)[i];
+			if (store->z_min > (*tab_int)[i])
+				store->z_min = (*tab_int)[i];
 			free(tab[i]);
 			i++;
 		}
@@ -65,6 +69,8 @@ int			read_map(char **argv, t_store *store)
 	int		fd;
 	int		i;
 
+	store->z_max = -2147483648;
+	store->z_min = 2147483647;
 	if (find_dim(argv, store))
 		return (-1);
 	if (!(store->tab = (int**)malloc(sizeof(int*) * store->lg)))
@@ -75,7 +81,7 @@ int			read_map(char **argv, t_store *store)
 	{
 		if (!(store->tab[i] = (int*)malloc(sizeof(int) * store->larg)))
 			return (-1);
-		fill_line(&store->tab[i], line);
+		fill_line(&store->tab[i], line, store);
 		i++;
 	}
 	return (0);

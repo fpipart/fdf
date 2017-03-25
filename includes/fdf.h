@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/24 16:49:32 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/25 17:15:18 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define H 1000
 #define W 1000
 
-#define Z 10
+#define Z 8 
 
 #define ESC 53
 
@@ -33,7 +33,10 @@ typedef struct		s_store
 	char			*data_img;
 	int				larg;
 	int				lg;
+	int				zoom;
 	int				**tab;
+	int				z_max;
+	int				z_min;
 	int				bpp;
 	int				s_l;
 	int				endian;
@@ -42,9 +45,12 @@ typedef struct		s_store
 
 typedef struct		s_rgb
 {
-	unsigned char	r;
-	unsigned char	g;
-	unsigned char	b;
+	unsigned char	r1;
+	unsigned char	g1;
+	unsigned char	b1;
+	unsigned char	r2;
+	unsigned char	g2;
+	unsigned char	b2;
 }					t_rgb;
 
 typedef struct	s_point
