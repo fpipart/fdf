@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/25 17:15:18 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/27 18:52:40 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 #include "../libft/libft.h"
 #include <math.h>
 
-#define H 1000
-#define W 1000
-
-#define Z 8 
-
-#define ESC 53
-
 typedef struct		s_store
 {
 	void			*mlx;
@@ -33,7 +26,10 @@ typedef struct		s_store
 	char			*data_img;
 	int				larg;
 	int				lg;
+	int				dim;
 	int				zoom;
+	int				offset_x;
+	int				offset_y;
 	int				**tab;
 	int				z_max;
 	int				z_min;
@@ -41,7 +37,21 @@ typedef struct		s_store
 	int				s_l;
 	int				endian;
 	float			theta;
+	float			alpha;
+	float			beta;
 }					t_store;
+
+typedef	struct		s_line
+{
+	int				dx;
+	int				dy;
+	int				dir_x;
+	int				dir_y;
+	int				e;
+	int				i;
+	int				x;
+	int				y;
+}					t_line;
 
 typedef struct		s_rgb
 {
@@ -53,12 +63,12 @@ typedef struct		s_rgb
 	unsigned char	b2;
 }					t_rgb;
 
-typedef struct	s_point
+typedef struct		s_point
 {
-	int			x;
-	int			y;
-	int			z;
-}				t_point;
+	int				x;
+	int				y;
+	int				z;
+}					t_point;
 
 /*
 **		read_map.c
@@ -74,6 +84,10 @@ int				error(char *error);
 //void			print_map(t_store store);
 //void			print_line(t_point p1, t_point p2, t_store store);
 void			print(t_store *store);
-//void			put_pixel(t_store *store, int x, int y, t_rgb color);
+void			put_pixel(t_store *store, int x, int y, t_rgb color);
+/*
+**		bresenham.c
+*/
+void			print_line(t_rgb *c, t_store *s, t_point p1, t_point p2);
 
 # endif

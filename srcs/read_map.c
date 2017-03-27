@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 15:20:41 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/25 15:31:21 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:49:50 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static int	find_dim(char **argv, t_store *store)
 	char	*line;
 	int		i;
 	int		j;
+	int	k;
 	int		fd;
 
+	k = 0;
 	fd = open(argv[1], O_RDWR);
 	if (fd <= 0)
 		return (error("no data"));
