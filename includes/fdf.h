@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/28 16:33:56 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:48:20 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ typedef	struct		s_line
 	int				i;
 	int				x;
 	int				y;
+	int				z;
+	int				zi;
+	int				zf;
 	t_rgb			c;
 }					t_line;
 

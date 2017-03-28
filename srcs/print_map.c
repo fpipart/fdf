@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 17:10:48 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/28 16:48:37 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:58:44 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 
 void	put_pixel(t_store *s, int x, int y, t_rgb c)
 {
-//	int i;
-//	int x;
-//	int y;
-
-//	x = roundf(x1);
-//	y = roundf(y1);
 	if (x >= 0 && y > 0 && y < s->dim  && x < s->dim)
 	{
 		s->data_img = mlx_get_data_addr(s->img, &(s->bpp),
