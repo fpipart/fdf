@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/28 11:54:23 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:33:56 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_store
 	int				larg;
 	int				lg;
 	int				dim;
-	int				zoom;
+	float			zoom;
 	int				offset_x;
 	int				offset_y;
 	int				**tab;
@@ -36,9 +36,8 @@ typedef struct		s_store
 	int				bpp;
 	int				s_l;
 	int				endian;
-	float			theta;
-	float			alpha;
 	float			beta;
+	float			theta;
 }					t_store;
 
 typedef struct		s_rgb
@@ -53,22 +52,22 @@ typedef struct		s_rgb
 
 typedef	struct		s_line
 {
-	double			dx;
-	double			dy;
-	double			dir_x;
-	double			dir_y;
-	double			e;
+	int				dx;
+	int				dy;
+	int				dir_x;
+	int				dir_y;
+	int				e;
 	int				i;
-	double			x;
-	double			y;
+	int				x;
+	int				y;
 	t_rgb			c;
 }					t_line;
 
 typedef struct		s_point
 {
-	double			x;
-	double			y;
-	double			z;
+	float			x;
+	float			y;
+	float			z;
 }					t_point;
 
 /*

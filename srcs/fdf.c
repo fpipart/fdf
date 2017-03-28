@@ -6,43 +6,47 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:12:51 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/27 16:44:57 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:52:04 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int	my_key_function(int keycode, void *param)
+int	my_key_function(int key, void *param)
 {
 	t_store *store;
 
 	store = param;
-//	ft_printf("Nombre de la touche : %d\n", keycode);
-	if (keycode == 53)
+	ft_printf("Nombre de la touche : %d\n", key);
+	if (key == 53)
 		exit(0);
-	if (keycode >= 69 || keycode == 15 || keycode == 17)
+	if (key >= 69 || key == 15 || key == 17 || key == 3 || key == 5)
 	{
-		if (keycode == 15 && store->beta < M_PI / 2 - M_PI / 24)
-			store->beta += M_PI / 24;
-		if (keycode == 17 && store->beta > M_PI / 24)
-			store->beta -= M_PI / 24;
-		if (keycode == 69)
+		if (key == 15 && store->beta < M_PI / 2.0 - M_PI / 24.0)
+			store->beta += M_PI / 24.0;
+		if (key == 17 && store->beta > M_PI / 24.0)
+			store->beta -= M_PI / 24.0;
+		if (key == 3 && store->theta < M_PI / 2.0 - M_PI / 24.0)
+			store->theta += M_PI / 24.0;
+		if (key == 5 && store->theta > M_PI / 24.0)
+			store->theta -= M_PI / 24.0;
+		if (key == 69)
 			store->zoom++;
-		if (keycode == 78)
+		if (key == 78)
 		{
 			if (store->zoom > 0)
 				store->zoom--;
 		}
-		if (keycode == 124 && store->offset_x < 2147483642)
+		if (key == 124 && store->offset_x < 2147483642)
 			store->offset_x += 5;
-		if (keycode == 126 && store->offset_y > -2147483643)
+		if (key == 126 && store->offset_y > -2147483643)
 			store->offset_y -= 5;
-		if (keycode == 123 && store->offset_x > -2147483643)
+		if (key == 123 && store->offset_x > -2147483643)
 			store->offset_x -= 5;
-		if (keycode == 125 && store->offset_y < 2147483647)
+		if (key == 125 && store->offset_y < 2147483647)
 			store->offset_y += 5;
-		if (keycode == 69 || keycode == 78 || keycode == 15 || keycode == 17 ||
-				(keycode >= 123 && keycode <= 126))
+		if (key == 69 || key == 78 || key == 15 || key == 17 || key == 3 
+				|| key == 5 || (key >= 123 && key <= 126))
 			print(store);
 	}
 	return (1);
@@ -61,7 +65,8 @@ int main(int argc, char **argv)
 				store.dim / (2 * store.larg) : 8);
 		store.offset_x = 0;
 		store.offset_y = 0;
-		store.beta = M_PI / 4;
+		store.beta = M_PI / 4.0;
+		store.theta = M_PI / 3.7;
 		store.mlx = mlx_init();
 		store.win = mlx_new_window(store.mlx, store.dim, store.dim, "mlx 42");
 		print(&store);
