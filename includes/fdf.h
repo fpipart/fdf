@@ -6,7 +6,7 @@
 /*   By: fpipart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 12:18:54 by fpipart           #+#    #+#             */
-/*   Updated: 2017/03/27 18:52:40 by fpipart          ###   ########.fr       */
+/*   Updated: 2017/03/28 11:54:23 by fpipart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,6 @@ typedef struct		s_store
 	float			beta;
 }					t_store;
 
-typedef	struct		s_line
-{
-	int				dx;
-	int				dy;
-	int				dir_x;
-	int				dir_y;
-	int				e;
-	int				i;
-	int				x;
-	int				y;
-}					t_line;
-
 typedef struct		s_rgb
 {
 	unsigned char	r1;
@@ -63,11 +51,24 @@ typedef struct		s_rgb
 	unsigned char	b2;
 }					t_rgb;
 
+typedef	struct		s_line
+{
+	double			dx;
+	double			dy;
+	double			dir_x;
+	double			dir_y;
+	double			e;
+	int				i;
+	double			x;
+	double			y;
+	t_rgb			c;
+}					t_line;
+
 typedef struct		s_point
 {
-	int				x;
-	int				y;
-	int				z;
+	double			x;
+	double			y;
+	double			z;
 }					t_point;
 
 /*
@@ -82,9 +83,11 @@ int				error(char *error);
 **		print_map.c
 */
 //void			print_map(t_store store);
-//void			print_line(t_point p1, t_point p2, t_store store);
+void			print_line(t_rgb *clr, t_store *s, t_point p1, t_point p2);
 void			print(t_store *store);
 void			put_pixel(t_store *store, int x, int y, t_rgb color);
+void			print_vline(int i, int j, t_store *s, t_rgb *color);
+void			print_hline(int i, int j, t_store *s, t_rgb *color);
 /*
 **		bresenham.c
 */
